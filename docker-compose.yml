@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+  product-transaction:
+    image: 'product-transaction:latest'
+    build:
+      context: .
+    container_name: product-transaction
+#    depends_on:
+#      - postgres
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
+#      - DATABASE_HOST=postgres
+#      - DATABASE_PORT=5433
+#      - DATABASE_NAME=product
+#      - DATABASE_USERNAME=product
+#      - DATABASE_PASSWORD=product
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
+#      - SPRING_DATASOURCE_USERNAME=compose-postgres
+#      - SPRING_DATASOURCE_PASSWORD=compose-postgres
+#      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+#  postgres:
+#    image: postgres:15-alpine
+#    environment:
+#      - POSTGRES_DB=product
+#      - POSTGRES_USER=product
+#      - POSTGRES_PASSWORD=product
+#    ports:
+#      - "5433:5433"
+#    volumes:
+#      - postgres-data:/var/lib/postgresql/data
+#
+#    networks:
+#      - product-network
+
+#volumes:
+#  postgres-data:
+#
+#networks:
+#  product-network:
+#    driver: bridge

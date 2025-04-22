@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: transaction-service
+
+  profiles:
+    active: local
+
+  datasource:
+    url: jdbc:h2:mem:product
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: sa
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
