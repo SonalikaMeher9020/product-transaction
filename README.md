@@ -92,7 +92,7 @@ curl --location 'http://localhost:8080/report/total-cost-per-customer' \
 --header 'Authorization: Basic YWRtaW46YWRtaW4xMjM='
 ```
 
-Response:
+Sample Response:
 
 ```json
 [
@@ -123,7 +123,7 @@ curl --location 'http://localhost:8080/report/total-cost-per-product' \
 --header 'Authorization: Basic YWRtaW46YWRtaW4xMjM='
 ```
 
-Response:
+Sample Response:
 
 ```json
 [
@@ -150,7 +150,7 @@ curl --location 'http://localhost:8080/report/australia-customer-count' \
 --header 'Authorization: Basic YWRtaW46YWRtaW4xMjM='
 ```
 
-Response:
+Sample Response:
 
 ```json
 3
