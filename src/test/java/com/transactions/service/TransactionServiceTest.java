@@ -1,8 +1,10 @@
 package com.transactions.service;
 
+import com.transactions.entity.Customer;
 import com.transactions.entity.Product;
 import com.transactions.entity.Transaction;
 import com.transactions.exception.InvalidTransactionException;
+import com.transactions.repository.CustomerRepository;
 import com.transactions.repository.ProductRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,6 +19,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -25,14 +28,19 @@ public class TransactionServiceTest {
     @Mock
     private ProductRepository productRepository;
 
+    @Mock
+    private CustomerRepository customerRepository;
+
     @InjectMocks
     private TransactionService transactionService;
 
     private Transaction transaction;
     private Product product;
+    Customer customer;
 
     @BeforeEach
     public void setUp() {
+         customer = new Customer(10001, "Tony", "Stark", "tony.stark@gmail.com", "Australia");
         transaction = new Transaction(101L, LocalDateTime.now().plusMinutes(10), 10001, "PRODUCT_001", 2);
         product = new Product("PRODUCT_001", new BigDecimal("100.00"), "Active");
     }
@@ -70,6 +78,7 @@ public class TransactionServiceTest {
     @Test
     void shouldPassValidationForValidTransaction() {
         when(productRepository.findById("PRODUCT_001")).thenReturn(Optional.of(product));
+        when(customerRepository.findById(anyLong())).thenReturn(Optional.ofNullable(customer));
         assertDoesNotThrow(() -> transactionService.validateTransaction(transaction));
     }
 }
