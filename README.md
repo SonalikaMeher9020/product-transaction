@@ -36,7 +36,7 @@ database** for reporting. Built with Java 17 and Spring Boot.
    cd product-transaction
    ```
 
-2. **Run from containers (optional)**
+2. **Run from containers if you have docker desktop running**
    ```bash
    docker-compose up -d
    ```
@@ -48,10 +48,11 @@ database** for reporting. Built with Java 17 and Spring Boot.
 4. **Run and Run from terminal**
 ### Set profile
    Dspring.profiles.active=local
+### Run from terminal or from IDE configuration
    ```bash
    java -jar product-transaction-0.0.1-SNAPSHOT.jar
    ```
-
+![img_1.png](img_1.png)
 ### Configuration
 
 The application can be configured by modifying the `src/main/resources/application.yml` file:
