@@ -1,8 +1,11 @@
 # product-transaction
+
 Product Transaction Service - Tabcorp
 
 ## Overview
-A Spring Boot microservice that accepts transaction data in **JSON or Binary format** and stores it in an **in-memory H2 database** for reporting. Built with Java 17 and Spring Boot.
+
+A Spring Boot microservice that accepts transaction data in **JSON or Binary format** and stores it in an **in-memory H2
+database** for reporting. Built with Java 17 and Spring Boot.
 
 ## Features
 
@@ -29,8 +32,8 @@ A Spring Boot microservice that accepts transaction data in **JSON or Binary for
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/transaction-management.git
-   cd transaction-management
+   git clone https://github.com/SonalikaMeher9020/product-transaction.git
+   cd product-transaction
    ```
 
 2. **Run from containers (optional)**
@@ -38,9 +41,13 @@ A Spring Boot microservice that accepts transaction data in **JSON or Binary for
    docker-compose up -d
    ```
 
-3. **Run from terminal**
+3. **compile from terminal**
    ```bash
-   bootRun product-transaction
+   mvn clean install
+   ```
+4. **Run and Run from terminal**
+   ```bash
+   java -jar product-transaction-0.0.1-SNAPSHOT.jar
    ```
 
 ### Configuration
@@ -53,7 +60,7 @@ Added Basic Auth. user: admin & password:admin12
 
 ## API Endpoints
 
-#### Create Transaction 
+#### Create Transaction
 
 ```bash
 curl --location 'http://localhost:8080/transaction' \
@@ -69,10 +76,13 @@ curl --location 'http://localhost:8080/transaction' \
 ```
 
 Response:
+
 ```json
   Transaction saved successfully.
 ```
+
 #### Get Transaction Cost Per Customer
+
 ```bash
 curl --location 'http://localhost:8080/report/total-cost-per-customer' \
 --header 'Accept: application/json' \
@@ -80,6 +90,7 @@ curl --location 'http://localhost:8080/report/total-cost-per-customer' \
 ```
 
 Response:
+
 ```json
 [
   {
@@ -100,7 +111,9 @@ Response:
   }
 ]
 ```
+
 #### Get Transaction Cost Per Product
+
 ```bash
 curl --location 'http://localhost:8080/report/total-cost-per-product' \
 --header 'Accept: application/json' \
@@ -108,6 +121,7 @@ curl --location 'http://localhost:8080/report/total-cost-per-product' \
 ```
 
 Response:
+
 ```json
 [
   {
@@ -124,7 +138,9 @@ Response:
   }
 ]
 ```
+
 #### Get Australia customer count
+
 ```bash
 curl --location 'http://localhost:8080/report/australia-customer-count' \
 --header 'Accept: application/json' \
@@ -132,6 +148,7 @@ curl --location 'http://localhost:8080/report/australia-customer-count' \
 ```
 
 Response:
+
 ```json
 3
 ```
