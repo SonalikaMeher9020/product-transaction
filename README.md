@@ -46,6 +46,8 @@ database** for reporting. Built with Java 17 and Spring Boot.
    mvn clean install
    ```
 4. **Run and Run from terminal**
+### Set profile
+   Dspring.profiles.active=local
    ```bash
    java -jar product-transaction-0.0.1-SNAPSHOT.jar
    ```
